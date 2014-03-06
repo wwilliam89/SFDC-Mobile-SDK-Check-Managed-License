@@ -26,7 +26,6 @@
 		8601F206174ADAE9000836B6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8601F204174ADAE9000836B6 /* InfoPlist.strings */; };
 		8601F208174ADAE9000836B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8601F207174ADAE9000836B6 /* main.m */; };
 		8601F20A174ADAE9000836B6 /* ISV TE Demo-Prefix.pch in Resources */ = {isa = PBXBuildFile; fileRef = 8601F209174ADAE9000836B6 /* ISV TE Demo-Prefix.pch */; };
-		8601F224174ADAEA000836B6 /* SFTestRunnerPlugin.js in Resources */ = {isa = PBXBuildFile; fileRef = 8601F223174ADAEA000836B6 /* SFTestRunnerPlugin.js */; };
 		8601F226174ADAEB000836B6 /* SalesforceHybridSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8601F225174ADAEB000836B6 /* SalesforceHybridSDK.framework */; };
 		8601F228174ADAEB000836B6 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8601F227174ADAEB000836B6 /* libz.dylib */; };
 		8601F22C174ADAEB000836B6 /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 8601F22B174ADAEB000836B6 /* icon-72.png */; };
@@ -48,6 +47,7 @@
 		8601F250174ADAEC000836B6 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8601F24F174ADAEC000836B6 /* Settings.bundle */; };
 		8601F252174ADAEC000836B6 /* CordovaResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8601F251174ADAEC000836B6 /* CordovaResources.bundle */; };
 		8601F254174ADAEC000836B6 /* SalesforceSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8601F253174ADAEC000836B6 /* SalesforceSDKResources.bundle */; };
+		8601F28C174D38C1000836B6 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 8601F28B174D38C1000836B6 /* www */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -84,28 +84,6 @@
 		8601F205174ADAE9000836B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8601F207174ADAE9000836B6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8601F209174ADAE9000836B6 /* ISV TE Demo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ISV TE Demo-Prefix.pch"; sourceTree = "<group>"; };
-		8601F20C174ADAEA000836B6 /* bootconfig.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = bootconfig.js; sourceTree = "<group>"; };
-		8601F20D174ADAEA000836B6 /* bootstrap.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = bootstrap.html; sourceTree = "<group>"; };
-		8601F20E174ADAEA000836B6 /* cordova-2.3.0.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "cordova-2.3.0.js"; sourceTree = "<group>"; };
-		8601F20F174ADAEA000836B6 /* forcetk.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = forcetk.js; sourceTree = "<group>"; };
-		8601F210174ADAEA000836B6 /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		8601F211174ADAEA000836B6 /* inline.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = inline.js; sourceTree = "<group>"; };
-		8601F214174ADAEA000836B6 /* ajax-loader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "ajax-loader.gif"; sourceTree = "<group>"; };
-		8601F215174ADAEA000836B6 /* icons-18-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons-18-black.png"; sourceTree = "<group>"; };
-		8601F216174ADAEA000836B6 /* icons-18-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons-18-white.png"; sourceTree = "<group>"; };
-		8601F217174ADAEA000836B6 /* icons-36-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons-36-black.png"; sourceTree = "<group>"; };
-		8601F218174ADAEA000836B6 /* icons-36-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons-36-white.png"; sourceTree = "<group>"; };
-		8601F219174ADAEA000836B6 /* jquery-1.8.3.min.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "jquery-1.8.3.min.js"; sourceTree = "<group>"; };
-		8601F21A174ADAEA000836B6 /* jquery.mobile-1.2.0.min.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = "jquery.mobile-1.2.0.min.css"; sourceTree = "<group>"; };
-		8601F21B174ADAEA000836B6 /* jquery.mobile-1.2.0.min.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "jquery.mobile-1.2.0.min.js"; sourceTree = "<group>"; };
-		8601F21C174ADAEA000836B6 /* jquery.mobile.structure-1.2.0.min.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = "jquery.mobile.structure-1.2.0.min.css"; sourceTree = "<group>"; };
-		8601F21D174ADAEA000836B6 /* jquery.mobile.theme-1.2.0.min.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = "jquery.mobile.theme-1.2.0.min.css"; sourceTree = "<group>"; };
-		8601F21E174ADAEA000836B6 /* qunit.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = qunit.css; sourceTree = "<group>"; };
-		8601F21F174ADAEA000836B6 /* qunit.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = qunit.js; sourceTree = "<group>"; };
-		8601F220174ADAEA000836B6 /* SalesforceOAuthPlugin.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = SalesforceOAuthPlugin.js; sourceTree = "<group>"; };
-		8601F221174ADAEA000836B6 /* SFHybridApp.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = SFHybridApp.js; sourceTree = "<group>"; };
-		8601F222174ADAEA000836B6 /* SFSmartStorePlugin.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = SFSmartStorePlugin.js; sourceTree = "<group>"; };
-		8601F223174ADAEA000836B6 /* SFTestRunnerPlugin.js */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SFTestRunnerPlugin.js; sourceTree = "<group>"; };
 		8601F225174ADAEB000836B6 /* SalesforceHybridSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SalesforceHybridSDK.framework; sourceTree = "<group>"; };
 		8601F227174ADAEB000836B6 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = /usr/lib/libz.dylib; sourceTree = DEVELOPER_DIR; };
 		8601F22B174ADAEB000836B6 /* icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-72.png"; path = "Resources/icons/icon-72.png"; sourceTree = "<group>"; };
@@ -128,6 +106,7 @@
 		8601F24F174ADAEC000836B6 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		8601F251174ADAEC000836B6 /* CordovaResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CordovaResources.bundle; sourceTree = "<group>"; };
 		8601F253174ADAEC000836B6 /* SalesforceSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SalesforceSDKResources.bundle; sourceTree = "<group>"; };
+		8601F28B174D38C1000836B6 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,13 +181,13 @@
 		8601F201174ADAE9000836B6 /* ISV TE Demo */ = {
 			isa = PBXGroup;
 			children = (
+				8601F28B174D38C1000836B6 /* www */,
 				8601F225174ADAEB000836B6 /* SalesforceHybridSDK.framework */,
 				8601F227174ADAEB000836B6 /* libz.dylib */,
 				8601F244174ADAEC000836B6 /* readme.md */,
 				8601F24F174ADAEC000836B6 /* Settings.bundle */,
 				8601F251174ADAEC000836B6 /* CordovaResources.bundle */,
 				8601F253174ADAEC000836B6 /* SalesforceSDKResources.bundle */,
-				8601F20B174ADAEA000836B6 /* www */,
 				8601F229174ADAEB000836B6 /* Resources */,
 				8601F246174ADAEC000836B6 /* Classes */,
 				8601F24A174ADAEC000836B6 /* Plugins */,
@@ -227,51 +206,6 @@
 				8601F24D174ADAEC000836B6 /* config.xml */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		8601F20B174ADAEA000836B6 /* www */ = {
-			isa = PBXGroup;
-			children = (
-				8601F20C174ADAEA000836B6 /* bootconfig.js */,
-				8601F20D174ADAEA000836B6 /* bootstrap.html */,
-				8601F20E174ADAEA000836B6 /* cordova-2.3.0.js */,
-				8601F20F174ADAEA000836B6 /* forcetk.js */,
-				8601F210174ADAEA000836B6 /* index.html */,
-				8601F211174ADAEA000836B6 /* inline.js */,
-				8601F212174ADAEA000836B6 /* jquery */,
-				8601F21E174ADAEA000836B6 /* qunit.css */,
-				8601F21F174ADAEA000836B6 /* qunit.js */,
-				8601F220174ADAEA000836B6 /* SalesforceOAuthPlugin.js */,
-				8601F221174ADAEA000836B6 /* SFHybridApp.js */,
-				8601F222174ADAEA000836B6 /* SFSmartStorePlugin.js */,
-				8601F223174ADAEA000836B6 /* SFTestRunnerPlugin.js */,
-			);
-			path = www;
-			sourceTree = "<group>";
-		};
-		8601F212174ADAEA000836B6 /* jquery */ = {
-			isa = PBXGroup;
-			children = (
-				8601F213174ADAEA000836B6 /* images */,
-				8601F219174ADAEA000836B6 /* jquery-1.8.3.min.js */,
-				8601F21A174ADAEA000836B6 /* jquery.mobile-1.2.0.min.css */,
-				8601F21B174ADAEA000836B6 /* jquery.mobile-1.2.0.min.js */,
-				8601F21C174ADAEA000836B6 /* jquery.mobile.structure-1.2.0.min.css */,
-				8601F21D174ADAEA000836B6 /* jquery.mobile.theme-1.2.0.min.css */,
-			);
-			path = jquery;
-			sourceTree = "<group>";
-		};
-		8601F213174ADAEA000836B6 /* images */ = {
-			isa = PBXGroup;
-			children = (
-				8601F214174ADAEA000836B6 /* ajax-loader.gif */,
-				8601F215174ADAEA000836B6 /* icons-18-black.png */,
-				8601F216174ADAEA000836B6 /* icons-18-white.png */,
-				8601F217174ADAEA000836B6 /* icons-36-black.png */,
-				8601F218174ADAEA000836B6 /* icons-36-white.png */,
-			);
-			path = images;
 			sourceTree = "<group>";
 		};
 		8601F229174ADAEB000836B6 /* Resources */ = {
@@ -381,7 +315,6 @@
 			files = (
 				8601F206174ADAE9000836B6 /* InfoPlist.strings in Resources */,
 				8601F20A174ADAE9000836B6 /* ISV TE Demo-Prefix.pch in Resources */,
-				8601F224174ADAEA000836B6 /* SFTestRunnerPlugin.js in Resources */,
 				8601F22C174ADAEB000836B6 /* icon-72.png in Resources */,
 				8601F22E174ADAEB000836B6 /* icon-72@2x.png in Resources */,
 				8601F230174ADAEB000836B6 /* icon.png in Resources */,
@@ -400,6 +333,7 @@
 				8601F250174ADAEC000836B6 /* Settings.bundle in Resources */,
 				8601F252174ADAEC000836B6 /* CordovaResources.bundle in Resources */,
 				8601F254174ADAEC000836B6 /* SalesforceSDKResources.bundle in Resources */,
+				8601F28C174D38C1000836B6 /* www in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,6 +487,7 @@
 				8601F259174ADAEC000836B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

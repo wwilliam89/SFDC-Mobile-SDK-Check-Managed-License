@@ -3,6 +3,8 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0; user-scalable=no" />
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        
+
 
     <!-- include jquery mobile -->
     <link rel="stylesheet" href="jquery/jquery.mobile-1.2.0.min.css" />
@@ -13,7 +15,7 @@
 	<script src="cordova-2.3.0.js"></script>
     <!-- include local utility functionality -->
     <script src="SFHybridApp.js"></script>
-    <!-- required for oauth plugin support -->    
+    <!-- required for oauth plugin support -->
     <script src="SalesforceOAuthPlugin.js"></script>
 
     <!-- include forcetk for REST transaction support -->
@@ -25,8 +27,61 @@
       .logWindow > p {padding:0px; margin:0px; word-wrap:break-word;}
     </style>
 
+        
+        
+        
+        
+        
+        
     <script>
 
+        
+        function loadWY(sess) {
+            var sessId = sess;
+            var request = new XMLHttpRequest();
+            request.open("GET", "https://na15.salesforce.com/services/apexrest/wyehmdemo/islicensed", false);
+            request.setRequestHeader("Authorization", "OAuth "+sess);
+            request.setRequestHeader("Content-Type", "application/json");
+            request.send();
+            
+            
+            document.getElementById("latestWY").innerHTML="Loading...";
+        
+            console.log(sess);
+            
+            
+           // var tweets = JSON.parse(request.responseText);
+            
+            console.log(request.responseText.replace(/\"/g, ""));
+            var ans = "f";
+            var lcn = "t"
+            var comps = request.responseText.replace(/\"/g, "");
+            if (comps === ans){
+                console.log("No License");
+                                                     
+                  window.location.href="bad.html";                                   
+            }
+            else if (comps == lcn){
+             console.log("Licensed");
+            window.location.href="yesli.html";
+          //  window.location.href='https://mobile1.t.salesforce.com/one/one.app';
+              }
+              else{
+             console.log("Not Applicable");
+            window.location.href="noli.html";
+                                                     
+         //                  window.location.href="https://na15.salesforce.com/apex/VF1";
+            
+             }
+            
+            
+        }
+
+        
+
+        
+        
+        
     
     // The version of the REST API you wish to use in your app.
     var apiVersion = "v23.0";
@@ -51,7 +106,7 @@
 	*/
 	
     var forcetkClient;
-    var debugMode = true;
+    var debugMode = false;
     var logToConsole = cordova.require("salesforce/util/logger").logToConsole;
 
     jQuery(document).ready(function() {
@@ -70,8 +125,11 @@
         //register to receive notifications when autoRefreshOnForeground refreshes the sfdc session
         document.addEventListener("salesforceSessionRefresh",salesforceSessionRefreshed,false);
 
+        console.log("point");
         //enable buttons
+      
         regLinkClickHandlers();
+      
     }
         
 
@@ -88,6 +146,12 @@
         forcetkClient.setSessionToken(credsData.accessToken, apiVersion, credsData.instanceUrl);
         forcetkClient.setRefreshToken(credsData.refreshToken);
         forcetkClient.setUserAgentString(credsData.userAgent);
+        loadWY(credsData.accessToken);
+          console.log("AAA"+credsData.accessToken);
+          console.log("ZZZ"+credsData);
+
+
+                                                     
     }
 
 
@@ -104,25 +168,18 @@
   <body>
       <div data-role="page" data-theme="b" id="jqm-home"> 
           <div  data-role="header"> 
-              <h1>Hybrid REST Explorer (SalesforceMobileSDK + Cordova + JQM)</h1> 
+              <h1>ISV TE DEMO</h1>
+              <!--Hybrid REST Explorer (SalesforceMobileSDK + Cordova + JQM)-->
           </div> 
 
-          <div id="#content" data-role="content"> 
+          <div id="#content" data-role="content">
 
-              <p><a href="#" id="link_fetch_device_contacts" data-role="button" data-inline="true">Fetch Device contacts</a></p>
-              <p><a href="#" id="link_fetch_sfdc_contacts" data-role="button" data-inline="true">Fetch SFDC contacts</a></p>
-              <p><a href="#" id="link_fetch_sfdc_accounts" data-role="button" data-inline="true">Fetch SFDC Accounts</a></p>
-              <p><a href="#" id="link_reset" data-role="button" data-inline="true">Reset</a></p>
-
-              <p><a href="#" id="link_logout" data-role="button" data-inline="true">Logout</a></p>
-
-              <div id="div_device_contact_list"></div>
-              <div id="div_sfdc_contact_list"></div>
-              <div id="div_sfdc_account_list"></div>
-
-              <h3>console:</h3>
-              <p id="console" class="logWindow">
-              </p>
+              
+              <div id="latestWY"> </div>
+              
+         
+              <h3></h3>
+              
           </div> 
 
       </div> 

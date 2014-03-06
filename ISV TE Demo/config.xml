@@ -60,4 +60,7 @@
 
     <access origin="*.force.com" />
     <access origin="*.salesforce.com" />
+    <access origin="*.twitter.com" />
+    <access origin="mobile1.t.salesforce.com/one/one.app" />
+    
 </cordova>

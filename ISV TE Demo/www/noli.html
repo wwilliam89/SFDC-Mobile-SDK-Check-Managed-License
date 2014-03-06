@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0; user-scalable=no" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+    <!-- include jquery mobile -->
+    <link rel="stylesheet" href="jquery/jquery.mobile-1.2.0.min.css" />
+    <script src="jquery/jquery-1.8.3.min.js"></script>
+    <script src="jquery/jquery.mobile-1.2.0.min.js"></script>
+        
+    <!-- Include cordova. -->
+	<script src="cordova-2.3.0.js"></script>
+    <!-- include local utility functionality -->
+    <script src="SFHybridApp.js"></script>
+    <!-- required for oauth plugin support -->
+    <script src="SalesforceOAuthPlugin.js"></script>
+
+    <!-- include forcetk for REST transaction support -->
+    <script src="forcetk.js"></script>    
+
+    <!-- log window styling -->
+    <style>
+      .logWindow {display:none; width:700px;}
+      .logWindow > p {padding:0px; margin:0px; word-wrap:break-word;}
+    </style>
+
+        
+        
+        
+        
+        
+        
+    <script>
+
+        
+        function loadWY(sess) {
+            var sessId = sess;
+            var request = new XMLHttpRequest();
+            request.open("GET", "https://na15.salesforce.com/services/apexrest/wyehmdemo/islicensed", false);
+            request.setRequestHeader("Authorization", "OAuth "+sess);
+            request.setRequestHeader("Content-Type", "application/json");
+            request.send();
+            
+            
+            document.getElementById("latestWY").innerHTML=request.responseText;
+        
+            console.log(sess);
+            
+            
+           // var tweets = JSON.parse(request.responseText);
+            
+            console.log(request.responseText.replace(/\"/g, ""));
+            var ans = "f";
+            var comps = request.responseText.replace(/\"/g, "");
+            if (comps === ans){
+                console.log("FOOOL");
+                                                     
+            }
+            else{
+             console.log("GOAL");
+              }
+            
+            
+            
+        }
+
+        
+        
+        function loadTweets() {
+            var request = new XMLHttpRequest();
+            request.open("GET", "http://search.twitter.com/search.json?q=phonegap", true);
+            request.onreadystatechange = function() {//Call a function when the state changes.
+                if (request.readyState == 4) {
+                    if (request.status == 200 || request.status == 0) {
+                        var tweets = JSON.parse(request.responseText);
+                        var data = "<table cellspacing='0'>";
+                        var tableClass;
+                        for (i = 0; i < tweets.results.length; i++) {
+                            if (i % 2 == 0) {
+                                tableClass = 'tweetOdd';
+                            }
+                            else {
+                                tableClass = 'tweetEven';
+                            }
+                            data += "<tr style='border: 1px solid black'>";
+                            data += "<td class='" + tableClass + "'>";
+                            data += "<img src='" + tweets.results[i].profile_image_url + "'/>";
+                            data += "</td>";
+                            data += "<td class='" + tableClass + "'>";
+                            data += "<b>" + tweets.results[i].from_user + "</b><br/>";
+                            data += tweets.results[i].text + "<br/>";
+                            data += tweets.results[i].created_at;
+                            data += "</td>";
+                            data += "</tr>";
+                            console.log("bbahhh");
+                        }
+                        data += "</table>";
+                        var twitter = document.getElementById("latestTweets");
+                        twitter.innerHTML = data;
+                    }
+                }
+            }
+            console.log("ahhh");
+            request.send();
+        }
+        
+        
+        
+        
+    
+    // The version of the REST API you wish to use in your app.
+    var apiVersion = "v23.0";
+
+	// If you want to prevent dragging, uncomment this section
+	/*
+	function preventBehavior(e) 
+	{ 
+      e.preventDefault(); 
+    };
+	document.addEventListener("touchmove", preventBehavior, false);
+	*/
+	
+	/* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
+	see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
+	for more details -jm */
+	/*
+	function handleOpenURL(url)
+	{
+		// do something with the url passed in.
+	}
+	*/
+	
+    var forcetkClient;
+    var debugMode = true;
+    var logToConsole = cordova.require("salesforce/util/logger").logToConsole;
+
+    jQuery(document).ready(function() {
+        //Add event listeners and so forth here
+        logToConsole("onLoad: jquery ready");
+		document.addEventListener("deviceready", onDeviceReady,false);
+
+    });
+
+    // When this function is called, Cordova has been initialized and is ready to roll 
+    function onDeviceReady() {
+        logToConsole("onDeviceReady: Cordova ready");
+		//Call getAuthCredentials to get the initial session credentials
+        cordova.require("salesforce/plugin/oauth").getAuthCredentials(salesforceSessionRefreshed, getAuthCredentialsError);
+
+        //register to receive notifications when autoRefreshOnForeground refreshes the sfdc session
+        document.addEventListener("salesforceSessionRefresh",salesforceSessionRefreshed,false);
+
+        console.log("point");
+        //enable buttons
+      
+        regLinkClickHandlers();
+      
+    }
+        
+
+    function salesforceSessionRefreshed(creds) {
+        logToConsole("salesforceSessionRefreshed");
+        
+        // Depending on how we come into this method, `creds` may be callback data from the auth
+        // plugin, or an event fired from the plugin.  The data is different between the two.
+        var credsData = creds;
+        if (creds.data)  // Event sets the `data` object with the auth data.
+            credsData = creds.data;
+
+        forcetkClient = new forcetk.Client(credsData.clientId, credsData.loginUrl);
+        forcetkClient.setSessionToken(credsData.accessToken, apiVersion, credsData.instanceUrl);
+        forcetkClient.setRefreshToken(credsData.refreshToken);
+        forcetkClient.setUserAgentString(credsData.userAgent);
+        loadWY(credsData.accessToken);
+          console.log("AAA"+credsData.accessToken);
+        
+    }
+
+
+    function getAuthCredentialsError(error) {
+        logToConsole("getAuthCredentialsError: " + error);
+    }
+        
+    </script>
+        
+	<!-- load our app-specific code -->
+    <script src="inline.js"></script>       
+
+  </head>
+  <body>
+      <div data-role="page" data-theme="b" id="jqm-home"> 
+          <div  data-role="header"> 
+              <h1>ISV TE DEMO</h1>
+              <!--Hybrid REST Explorer (SalesforceMobileSDK + Cordova + JQM)-->
+          </div> 
+
+          <div id="#content" data-role="content">
+
+              
+              
+              <h3>You Do Not Have A License</h3>
+              
+              <button onclick="#" id="link_reset">Reset</button>
+              <button onclick="#" id="link_logout">Logout</button>
+              
+              <h3>console:</h3>
+              <p id="console" class="logWindow">
+              </p>
+
+                      </div> 
+
+      </div> 
+  </body>
+</html>
