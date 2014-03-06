@@ -10,8 +10,7 @@ Better mobile UI - Using Bootstrap
   -If the user is not licensed, show reduced features.
 
 Please add this apex code snippet into your managed package:
-<code>
-
+<pre><code>
 @RestResource(urlMapping='/islicensed/*')
 global with sharing class licenseRest {
 
@@ -28,8 +27,7 @@ global with sharing class licenseRest {
     }
 }
 
-
-</code>
+</code></pre>
 
 
 
