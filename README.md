@@ -14,9 +14,9 @@ Better mobile UI - Using Bootstrap
 
 # Setup
 
-*Git Clone this project
-*Open Xcode Project
-*Added Apex code below to your managed package
+* Git Clone this project
+* Open Xcode Project
+* Added Apex code below to your managed package
 
 
 
