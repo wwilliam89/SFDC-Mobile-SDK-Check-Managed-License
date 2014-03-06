@@ -1,13 +1,14 @@
 #Simple Demo showing SFDC Mobile SDK App Checking for Managed Package License.
 
 # Setup
-
+<p>
 This is a modified sample contact app from SFDC Mobile SDK 2.0. 
 What's different?
+</p>
 Better mobile UI - Using Bootstrap
-*Added License Checking logic.
-  -If the user is licensed, show full feature set
-  -If the user is not licensed, show reduced features.
+* Added License Checking logic.
+  - If the user is licensed, show full feature set
+  - If the user is not licensed, show reduced features.
 
 Please add this apex code snippet into your managed package:
 <pre><code>
