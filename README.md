@@ -1,8 +1,6 @@
 SFDC-Mobile-SDK-Check-Managed-License
 =====================================
 
-#Simple Demo SFDC Mobile SDK App Verifying Managed Package License.
-
 # Setup
 <p>
 This is a modified sample contact app from SFDC Mobile SDK 2.0. 
