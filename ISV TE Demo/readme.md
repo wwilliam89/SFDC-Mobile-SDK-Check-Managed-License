@@ -1,4 +1,4 @@
-#Simple Demo showing SFDC Mobile SDK App Checking for Managed Package License.
+#Simple Demo SFDC Mobile SDK App Verifying Managed Package License.
 
 # Setup
 <p>
