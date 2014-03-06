@@ -45,4 +45,4 @@ global with sharing class licenseRest {
 
 
 
-*Disclaimer, this is not supported officially, and does not guarantee to always work.
+*Disclaimer: this is not supported officially, use at your own risk.
